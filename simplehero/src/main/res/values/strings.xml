@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SimpleHero</string>
+    <string name="public_key">4b08badbb0599b9173d3d2d1fb8d0727</string>
+    <string name="private_key">0f605f8bc13c8b5a2844059c7837e04babf7e894</string>
+</resources>
