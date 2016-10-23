@@ -7,5 +7,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"
-    tools:context="com.androidtitan.simplehero.HeroFragment"
+    tools:context="com.androidtitan.simplehero.ui.HeroFragment"
     tools:listitem="@layout/fragment_item" />

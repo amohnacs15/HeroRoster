@@ -1,4 +1,4 @@
-package com.androidtitan.simplehero;
+package com.androidtitan.simplehero.threads;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -11,17 +11,11 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.charset.MalformedInputException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by amohnacs on 10/22/16.

@@ -1,4 +1,4 @@
-package com.androidtitan.simplehero;
+package com.androidtitan.simplehero.threads;
 
 import com.androidtitan.simplehero.model.SuperHero;
 

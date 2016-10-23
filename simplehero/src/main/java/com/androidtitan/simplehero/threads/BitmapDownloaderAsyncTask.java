@@ -1,10 +1,8 @@
-package com.androidtitan.simplehero;
+package com.androidtitan.simplehero.threads;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.InputStream;
@@ -13,16 +11,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by amohnacs on 10/22/16.
+ * Created by amohnacs on 10/23/16.
  */
 
-public class ImageDownloadAsyncTask extends AsyncTask<String, Void, Bitmap> {
-    private final String TAG = getClass().getSimpleName();
+class BitmapDownloaderAsyncTask extends AsyncTask<String, Void, Bitmap> {
 
-    private final WeakReference<ImageView> imageView;
+    private String url;
+    private final WeakReference<ImageView> weakImageView;
 
-    public ImageDownloadAsyncTask(ImageView passedImageView) {
-        imageView = new WeakReference<ImageView>(passedImageView);
+    public BitmapDownloaderAsyncTask(ImageView imageView) {
+        weakImageView = new WeakReference<ImageView>(imageView);
     }
 
     @Override
@@ -30,10 +28,8 @@ public class ImageDownloadAsyncTask extends AsyncTask<String, Void, Bitmap> {
 
         HttpURLConnection urlConnection = null;
 
-        String uriString = params[0] + "/portrait_incredible." + params[1];
-
         try {
-            URL uri = new URL(uriString);
+            URL uri = new URL(params[0]);
             urlConnection = (HttpURLConnection) uri.openConnection();
 
             InputStream inputStream = urlConnection.getInputStream();
@@ -48,25 +44,20 @@ public class ImageDownloadAsyncTask extends AsyncTask<String, Void, Bitmap> {
                 urlConnection.disconnect();
             }
         }
-        return null;
-
+        return null; //parameters are given in an array
     }
 
     @Override
     protected void onPostExecute(Bitmap bitmap) {
-        super.onPostExecute(bitmap);
-
-        if(isCancelled()) {
+        if (isCancelled()) {
             bitmap = null;
         }
 
-        if(imageView != null) {
-            ImageView newImageView = imageView.get();
-
-            if (bitmap != null) {
-                newImageView.setImageBitmap(bitmap);
+        if (weakImageView != null) {
+            ImageView imageView = weakImageView.get();
+            if (imageView != null) {
+                imageView.setImageBitmap(bitmap);
             }
         }
-
     }
 }

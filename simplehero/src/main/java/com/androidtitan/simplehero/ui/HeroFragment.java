@@ -1,22 +1,27 @@
-package com.androidtitan.simplehero;
+package com.androidtitan.simplehero.ui;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.androidtitan.simplehero.threads.AsyncTaskInterface;
+import com.androidtitan.simplehero.threads.HeroDownloadAsyncTask;
+import com.androidtitan.simplehero.adapter.HeroRecyclerViewAdapter;
+import com.androidtitan.simplehero.R;
 import com.androidtitan.simplehero.model.SuperHero;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -74,10 +79,10 @@ public class HeroFragment extends Fragment implements AsyncTaskInterface{
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(mColumnCount, 1));
             }
 
-            adapter = new HeroRecyclerViewAdapter(heroList);
+            adapter = new HeroRecyclerViewAdapter(getActivity(), heroList);
             recyclerView.setAdapter(adapter);
             try {
 
@@ -103,7 +108,6 @@ public class HeroFragment extends Fragment implements AsyncTaskInterface{
 
     @Override
     public void updateAdapter(SuperHero hero) {
-        Log.d(TAG, hero.getName());
 
         heroList.add(hero);
         adapter.notifyDataSetChanged();
@@ -111,10 +115,6 @@ public class HeroFragment extends Fragment implements AsyncTaskInterface{
 
     @Override
     public void updateAdapter(ArrayList<SuperHero> heroes) {
-
-        for(SuperHero hero : heroes) {
-            Log.d(TAG, hero.getName());
-        }
 
         heroList.clear();
         heroList.addAll(heroes);
