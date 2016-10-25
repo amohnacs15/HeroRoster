@@ -3,7 +3,7 @@ package com.androidtitan.simplehero.threads;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.androidtitan.simplehero.model.SuperHero;
+import com.androidtitan.simplehero.model.Hero;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -70,7 +70,7 @@ public class HeroDownloadAsyncTask extends AsyncTask<String, Void, String> {
         //notify our adapter of changes here
         Log.e(TAG, s);
 
-        ArrayList<SuperHero> heroList = new ArrayList<SuperHero>();
+        ArrayList<Hero> heroList = new ArrayList<Hero>();
 
         try {
             JSONObject heroResponse = new JSONObject(s);
@@ -83,7 +83,7 @@ public class HeroDownloadAsyncTask extends AsyncTask<String, Void, String> {
 
                     for (int i = 0; i < heroes.length(); i++){
 
-                        SuperHero hero = new SuperHero();
+                        Hero hero = new Hero();
 
                         if(heroes.getJSONObject(i).get("name") instanceof String) {
                            hero.setName(heroes.getJSONObject(i).getString("name"));

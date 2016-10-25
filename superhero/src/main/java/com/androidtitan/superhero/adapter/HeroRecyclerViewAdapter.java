@@ -1,4 +1,4 @@
-package com.androidtitan.simplehero.adapter;
+package com.androidtitan.superhero.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,17 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.androidtitan.simplehero.R;
-import com.androidtitan.simplehero.model.Hero;
-import com.androidtitan.simplehero.threads.ImageDownloader;
-import com.androidtitan.simplehero.ui.HeroDetailActivity;
+import com.androidtitan.superhero.R;
+import com.androidtitan.superhero.model.Hero;
+import com.androidtitan.superhero.ui.HeroDetailActivity;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import static com.androidtitan.simplehero.Constants.HERO_DESCRIPTION_EXTRA;
-import static com.androidtitan.simplehero.Constants.HERO_IMAGE_EXTENSION_EXTRA;
-import static com.androidtitan.simplehero.Constants.HERO_IMAGE_URL_EXTRA;
-import static com.androidtitan.simplehero.Constants.HERO_NAME_EXTRA;
+import static com.androidtitan.superhero.Constants.HERO_ID_EXTRA;
 
 
 public class HeroRecyclerViewAdapter extends RecyclerView.Adapter<HeroRecyclerViewAdapter.ViewHolder> {
@@ -38,37 +35,33 @@ public class HeroRecyclerViewAdapter extends RecyclerView.Adapter<HeroRecyclerVi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_item, parent, false);
+                .inflate(R.layout.fragment_hero, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        String uriString = heroes.get(position).getImageUrl()
-                + "/portrait_incredible." + heroes.get(position).getImageExtension();
+        String urlString = heroes.get(position).getThumbnail().getPath()
+                + "/portrait_incredible." + heroes.get(position).getThumbnail().getExtension();
 
 
         holder.mItem = heroes.get(position);
         holder.itemName.setText(heroes.get(position).getName());
 
-        try {
-            ImageDownloader imageDownloader = new ImageDownloader();
-            imageDownloader.imageDownload(uriString,
-                    holder.itemImage);
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+
+        Glide.with(context)
+                .load(urlString)
+                .crossFade()
+                .into(holder.itemImage);
+
 
         holder.clickLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, HeroDetailActivity.class);
 
-                intent.putExtra(HERO_NAME_EXTRA, heroes.get(position).getName());
-                intent.putExtra(HERO_DESCRIPTION_EXTRA, heroes.get(position).getDescription());
-                intent.putExtra(HERO_IMAGE_URL_EXTRA, heroes.get(position).getImageUrl());
-                intent.putExtra(HERO_IMAGE_EXTENSION_EXTRA, heroes.get(position).getImageExtension());
+                intent.putExtra(HERO_ID_EXTRA, heroes.get(position).getId());
 
                 context.startActivity(intent);
             }
@@ -92,12 +85,14 @@ public class HeroRecyclerViewAdapter extends RecyclerView.Adapter<HeroRecyclerVi
         public final TextView itemName;
         public Hero mItem;
 
+
         public ViewHolder(View view) {
             super(view);
 
             clickLayout = (CardView) view.findViewById(R.id.placeCard);
             itemImage = (ImageView) view.findViewById(R.id.heroImageView);
             itemName = (TextView) view.findViewById(R.id.heroName);
+
         }
 
     }

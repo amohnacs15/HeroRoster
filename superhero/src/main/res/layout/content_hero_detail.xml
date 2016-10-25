@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.androidtitan.simplehero.ui.HeroDetailActivity"
+    tools:context="com.androidtitan.superhero.ui.HeroDetailActivity"
     tools:showIn="@layout/activity_hero_detail">
 
     <LinearLayout
@@ -13,24 +13,40 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <TextView
             android:id="@+id/nameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:padding="16dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="36dp"
+            android:textSize="30dp"
             android:textStyle="bold"
-            android:text="placeholder" />
+            android:text="placeholder"
+            android:textColor="@android:color/white"/>
 
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/large_text"
+            android:text="placeholder"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/comicsTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Comics"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/comicsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="placeholder"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </LinearLayout>

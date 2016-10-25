@@ -1,14 +1,11 @@
 package com.androidtitan.simplehero.ui;
 
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +14,7 @@ import com.androidtitan.simplehero.threads.AsyncTaskInterface;
 import com.androidtitan.simplehero.threads.HeroDownloadAsyncTask;
 import com.androidtitan.simplehero.adapter.HeroRecyclerViewAdapter;
 import com.androidtitan.simplehero.R;
-import com.androidtitan.simplehero.model.SuperHero;
+import com.androidtitan.simplehero.model.Hero;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -37,7 +34,7 @@ public class HeroFragment extends Fragment implements AsyncTaskInterface{
 
     private HeroRecyclerViewAdapter adapter;
 
-    private ArrayList<SuperHero> heroList;
+    private ArrayList<Hero> heroList;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -107,14 +104,14 @@ public class HeroFragment extends Fragment implements AsyncTaskInterface{
     }
 
     @Override
-    public void updateAdapter(SuperHero hero) {
+    public void updateAdapter(Hero hero) {
 
         heroList.add(hero);
         adapter.notifyDataSetChanged();
     }
 
     @Override
-    public void updateAdapter(ArrayList<SuperHero> heroes) {
+    public void updateAdapter(ArrayList<Hero> heroes) {
 
         heroList.clear();
         heroList.addAll(heroes);

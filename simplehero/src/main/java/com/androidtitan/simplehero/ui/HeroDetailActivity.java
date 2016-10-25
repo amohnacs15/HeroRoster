@@ -6,7 +6,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +22,7 @@ public class HeroDetailActivity extends AppCompatActivity {
     private final String TAG = getClass().getSimpleName();
 
     private ImageView imageView;
+    private TextView nameTextView;
     private TextView descriptionTextView;
 
     private String heroName;
@@ -47,9 +47,11 @@ public class HeroDetailActivity extends AppCompatActivity {
         }
 
         imageView = (ImageView) findViewById(R.id.heroDetailImageView);
+        nameTextView = (TextView) findViewById(R.id.nameTextView);
         descriptionTextView = (TextView) findViewById(R.id.descriptionTextView);
 
-        getSupportActionBar().setTitle(heroName);
+        getSupportActionBar().setTitle("");
+        nameTextView.setText(heroName);
         descriptionTextView.setText(heroDescription.equals("")?
                 "No description available. They must not be that interesting" : heroDescription);
 

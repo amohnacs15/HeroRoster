@@ -1,6 +1,6 @@
 package com.androidtitan.simplehero.threads;
 
-import com.androidtitan.simplehero.model.SuperHero;
+import com.androidtitan.simplehero.model.Hero;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,6 @@ import java.util.ArrayList;
  */
 public interface AsyncTaskInterface {
 
-    void updateAdapter(SuperHero hero);
-    void updateAdapter(ArrayList<SuperHero> heros);
+    void updateAdapter(Hero hero);
+    void updateAdapter(ArrayList<Hero> heros);
 }

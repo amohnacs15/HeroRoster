@@ -1,11 +1,11 @@
-package com.androidtitan.simplehero.ui;
+package com.androidtitan.superhero.ui;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.androidtitan.simplehero.R;
+import com.androidtitan.superhero.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +20,5 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.activity_main, fragment)
                 .addToBackStack(null).commit();
-
-
     }
 }

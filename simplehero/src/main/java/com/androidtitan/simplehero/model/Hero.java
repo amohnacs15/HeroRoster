@@ -6,18 +6,18 @@ import java.util.List;
  * Created by amohnacs on 10/22/16.
  */
 
-public class SuperHero {
+public class Hero {
 
     private String name;
     private String description;
     private String imageUrl;
     private String imageExtension;
 
-    public SuperHero() {
+    public Hero() {
 
     }
 
-    public SuperHero(String name, String description, String imageUrl, String imageExtension) {
+    public Hero(String name, String description, String imageUrl, String imageExtension) {
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
