@@ -29,6 +29,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 import static com.androidtitan.superhero.RequestHelper.md5;
 
@@ -91,6 +92,8 @@ public class HeroFragment extends Fragment {
 
     private List<Hero> getHeroList() {
 
+        RetrofitEndpoint retrofitClient = RetrofitService.createService(RetrofitEndpoint.class);
+
         Call<MarvelResponse> call = retrofitClient.requestHeroList("-modified", 20, System.currentTimeMillis(),
                 getContext().getResources().getString(R.string.api_kay), hash());
 
@@ -102,6 +105,7 @@ public class HeroFragment extends Fragment {
                     Log.e(TAG, "Sent a request to: " + call.request().toString());
                     heroList.addAll(response.body().getData().getResults());
                     adapter.notifyDataSetChanged();
+
                 } catch (NullPointerException e) {
                     getHeroList();
                 }

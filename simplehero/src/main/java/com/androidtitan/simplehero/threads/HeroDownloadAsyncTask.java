@@ -21,6 +21,10 @@ import java.util.ArrayList;
  * Created by amohnacs on 10/22/16.
  */
 
+/*
+    This class remains to show a way to downlo
+
+ */
 public class HeroDownloadAsyncTask extends AsyncTask<String, Void, String> {
     private final String TAG = getClass().getSimpleName();
 

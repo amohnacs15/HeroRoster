@@ -36,17 +36,5 @@ public class RetrofitService {
         return new OkHttpClient.Builder().addInterceptor(interceptor);
     }
 
-    private static GsonConverterFactory gsonConverter() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Hero[].class, new MyGsonDeserializer());
-        gsonBuilder.serializeNulls();
-        gsonBuilder.excludeFieldsWithoutExposeAnnotation();
-
-        Gson myGson = gsonBuilder.create();
-
-        return GsonConverterFactory.create(myGson);
-    }
-
-
 
 }
