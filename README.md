@@ -4,7 +4,7 @@ This app was developed for tech talk titled "Leveling Up Your Mobile Apps: Lever
 
 Here is the transcript for the speech:
 
-$$$So Who is This Guy?
+###So Who is This Guy?
 
 Before we get started, my name’s Adrian Mohnacs and I’m a Full Stack Software Developer at Dante.  We’re a software company that was founded in 1998 and since then we’ve consulted and developed software for companies including MasterCard, Comcast, Verizon, and the Federal Government.  
 
