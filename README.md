@@ -4,7 +4,7 @@ This app was developed for tech talk titled "Leveling Up Your Mobile Apps: Lever
 
 Here is the transcript for the speech:
 
-###So Who is This Guy?
+### So Who is This Guy?
 
 Before we get started, my name’s Adrian Mohnacs and I’m a Full Stack Software Developer at Dante.  We’re a software company that was founded in 1998 and since then we’ve consulted and developed software for companies including MasterCard, Comcast, Verizon, and the Federal Government.  
 
@@ -14,7 +14,7 @@ Today I’m going to talk to you about the direction that technology is heading 
 I’m going to show you how you can take your application to the next level, decrease development time, and give your app that “wow” factor by leveraging open source third party libraries.
 And if this peaks your interest I’m going to show you how you can contribute to the open source community.
 
-###The Rise of Mobile and the World to Come
+### The Rise of Mobile and the World to Come
 
 Who here has an Android phone???
  
@@ -36,7 +36,7 @@ So...there is going to be a lot of competition coming, but there is also going t
 
 Because of the increasing size of this market we are no longer in the age of “There’s an app for that” and we’re leaving behind our dreams of writing a single app that will make us millionaires.  Already it’s at the point where just writing an application isn’t going to be enough.  It needs to deliver an unprecedented experience to the user and engage them like never before.  While I don’t have all of the answers on how to build an app that will make you enough money to buy a yacht and date a model, I do have a few pointers on how not to get left behind, and maybe, if you work hard, make a few kick ass apps in the process.
 
-###Our Not So Simple Application
+### Our Not So Simple Application
 
 I’m assuming that some of you already have experience with Android fundamentals so we’ll jump right into some code and start looking at some apps.  The first one I’m going to show you is using the Android SDK and nothing else.  The out of the box development tools that Google provides you gives you everything you need to develop, test, and debug your applications.  As most of you know, that while a lot is given to you there is usually additional work that needs to done, outside of the SDK, to solidify your application’s architecture and give your app style and personality.  
 
@@ -47,7 +47,7 @@ display the results in a gridview with each item containing an image and some as
 is going to launch a new activity that makes a second query to get the detailed information for our hero and it's shown to the user 
 with a large image, the hero's name, and a brief description.
 
-####Let's take a look at our first app
+#### Let's take a look at our first app
 
 You can see that our heros are displayed in a staggered grid view.  When I scroll the image down quickly you can see that there is a grey box 
 and the image is "popped" in there and it doesn't look good.  This is because I am not caching the images (storing them locally on the 
@@ -111,7 +111,7 @@ https://www.bignerdranch.com/blog/extracting-colors-to-a-palette-with-android-lo
 
 These colors that are accentuating the image. Palette is an API for Android that allows you to extract and make use of colors in an image.  While Palette itself isn’t an open source library I put it in this project to show that you can use external libraries to make existing components of your app even more powerful.  Such as using Palette within your Guid callback.
 
-###Contributing to Open Source Projects
+### Contributing to Open Source Projects
 
 Looking at our application before and after it’s pretty easy to see the power and usefulness of open source libraries provided by the Android community.  They allow you to save development time, improve the readability of your code, and sometimes just make your app look a little cooler.  Developers working on small projects as well as large companies are adopting the practice of open sourcing their software as well as the libraries and tools that support them. This year Bulgaria passed a law requiring all software written for the government be open source and to be developed as such in a public repository.  It’s great that Bulgaria has done this because it will provide software solutions for its country’s coders, improve the quality of the software being developed, and increase government transparency.
 
@@ -126,7 +126,7 @@ Here’s an example showing the workflow of contributing. HabaticaRPG.
 
 For Ouli, our consumer mobile application that recommends activities in the Washington DC area, we are using a few of these libraries you’ve just seen and a few more.  These include Dagger 2 a library that allows for dependency injection throughout your application, implementing a singleton of your objects.  Using this library allows for increased modularity in your projects and helps support a healthy application architecture.  We use libraries such as Robolectric and Mockito to provide the support we need for unit and integration testing.  As well as a few others that help make development easier day to day.  Dante is also embracing the open source lifestyle.  We have started putting several web applications using Serverless on Github and as our company grows and we continue to grow there will be new projects that we release to the public.   
 
-###Conclusion
+### Conclusion
 
 To conclude, we’ve learned that the use of mobile technology is on the rise all over the world.  As the number of people with smartphones rises so will data consumption and app revenue.  In order to not only thrive but to survive in this space as it is becoming more competitive you need to be able to see the benefits in tools and resources and leverage them to give yourself a leg up.  There is no need to reinvent the wheel.
 
